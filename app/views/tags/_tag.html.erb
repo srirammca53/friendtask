@@ -1,0 +1,22 @@
+<br />
+<br />
+<p>
+  <b>Tags:</b><br/>
+  <% tag.tags.each do |t|%>
+    <input type ="text" value = <%= t.name %> > <%= link_to "delete" , tag_path(:user_id => current_user.id, :album_id =>@photo.album_id , :photo_id => params[:photo_id])
+ %><br/>
+   <% end %>
+</p>
+
+
+<%= form_for([tag, Tag.new()]) do |f| %>
+
+Add tag
+
+  <%= f.text_field :name %>
+  <%= f.hidden_field :taggable_id, :value => tag.id %>
+<%= f.hidden_field :taggable_type, :value => tag.class %>
+
+<br />
+  <%= f.submit %>
+<% end %>

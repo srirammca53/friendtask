@@ -1,0 +1,16 @@
+
+<br />
+Name:
+<br />
+<%= @album.name %>
+<br/>
+<hr />
+<br />
+list of photos
+
+<%= render @album.photos %>
+
+<h2>Add a photo:</h2>
+<%= render "photos/new" %>
+<br />
+  <%= render :partial => 'tags/tag', :locals => { :tag => @album }  %>
